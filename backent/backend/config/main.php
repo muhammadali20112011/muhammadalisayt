@@ -13,9 +13,13 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
-        'request' => [
-            'baseUrl'=>'/backend',
-            'csrfParam' => '_csrf-backend',
+    'request' => [
+    'csrfParam' => '_csrf-backend',
+    'parsers' => [
+        'application/json' => 'yii\web\JsonParser',
+    ],
+],
+
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -44,6 +48,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['kurslar',], 
             ],
         ],
         
